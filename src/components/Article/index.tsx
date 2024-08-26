@@ -6,7 +6,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { CiBookmarkPlus } from "react-icons/ci";
 import { CiBookmarkCheck } from "react-icons/ci";
-import { useState } from "react";
+import {
+  type AwaitedReactNode,
+  type JSXElementConstructor,
+  type Key,
+  type ReactElement,
+  type ReactNode,
+  type ReactPortal,
+  useState,
+} from "react";
 import { api } from "@/utils/api";
 import { type ArticleProps } from "@/components/lib/definitions";
 import { regularDate } from "@/components/lib/utils";
@@ -99,23 +107,41 @@ export default function Article({ ...article }: ArticleProps) {
 
       {/* Tags related to the rendered feed articles */}
       <div>
-        <div className="flex w-full items-center justify-between ">
+        <div className="flex w-full items-center justify-between">
           {/* The tags related to the articles */}
           <div className="flex items-center space-x-2">
-            {article.tags.map((tag) => (
-              <div
-                key={tag.id}
-                onClick={() => {
-                  // Redirect the user to a tag page where all the articles with the the clicked tag are rendered
-                }}
-                className="rounded-2xl bg-gray-200/50 px-5 py-3"
-              >
-                {tag.name}
-              </div>
-            ))}
+            {article.tags.map(
+              (tag: {
+                id: Key | null | undefined;
+                name:
+                  | string
+                  | number
+                  | bigint
+                  | boolean
+                  | ReactElement<
+                      unknown,
+                      string | JSXElementConstructor<unknown>
+                    >
+                  | Iterable<ReactNode>
+                  | ReactPortal
+                  | Promise<AwaitedReactNode>
+                  | null
+                  | undefined;
+              }) => (
+                <div
+                  key={tag.id}
+                  onClick={() => {
+                    // Redirect the user to a tag page where all the articles with the the clicked tag are rendered
+                  }}
+                  className="rounded-2xl bg-gray-200/50 px-5 py-3"
+                >
+                  {tag.name}
+                </div>
+              ),
+            )}
           </div>
           {/* The bookmark functionality */}
-          <div className="flex space-x-2 items-center justify-between">
+          <div className="flex items-center justify-between space-x-2">
             <span className="">{article._count.likes} likes &#8226;</span>
             <span className="">{article._count.comments} comments &#8226;</span>
             {isBookmarked ? (

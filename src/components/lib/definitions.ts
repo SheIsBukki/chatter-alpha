@@ -1,6 +1,7 @@
 import type { RouterOutputs } from "@/utils/api";
 
 export type ArticleProps = RouterOutputs["articleRouter"]["getArticles"][number];
+// export type ArticleProps = RouterOutputs["articleRouter"]["getArticles"];
 
 export type GlobalContextType = {
   isWriteModalOpen: boolean;
