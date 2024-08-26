@@ -6,17 +6,17 @@ import { BiEdit } from "react-icons/bi";
 import toast from "react-hot-toast";
 import dayjs from "dayjs";
 import { useSession } from "next-auth/react";
-import { createClient } from "@supabase/supabase-js";
-import { env } from "@/env";
+// import { createClient } from "@supabase/supabase-js";
+// import { env } from "@/env";
 import { useState } from "react";
 import Modal from "@/components/Modal";
 import Article from "@/components/Article";
 import MainLayout from "@/layouts/MainLayout";
 
-export const supabase = createClient(
-  env.NEXT_PUBLIC_SUPABASE_URL,
-  env.NEXT_PUBLIC_SUPABASE_PUBLIC_KEY,
-);
+// export const supabase = createClient(
+//   env.NEXT_PUBLIC_SUPABASE_URL,
+//   env.NEXT_PUBLIC_SUPABASE_PUBLIC_KEY,
+// );
 
 export default function UserProfilePage() {
   const router = useRouter();
