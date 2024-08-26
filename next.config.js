@@ -5,7 +5,7 @@
  * for Docker builds.
  */
 await import("./src/env.js");
-await import("next-remove-imports");
+// await import("next-remove-imports");
 // module.exports = removeImports({});
 
 /** @type {import("next").NextConfig} */
