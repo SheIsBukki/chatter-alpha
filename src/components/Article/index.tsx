@@ -6,15 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CiBookmarkPlus } from "react-icons/ci";
 import { CiBookmarkCheck } from "react-icons/ci";
-import {
-  type AwaitedReactNode,
-  type JSXElementConstructor,
-  type Key,
-  type ReactElement,
-  type ReactNode,
-  type ReactPortal,
-  useState,
-} from "react";
+import { useState } from "react";
 import { api } from "@/utils/api";
 import { type ArticleProps } from "@/components/lib/definitions";
 import { regularDate } from "@/components/lib/utils";
@@ -110,35 +102,17 @@ export default function Article({ ...article }: ArticleProps) {
         <div className="flex w-full items-center justify-between">
           {/* The tags related to the articles */}
           <div className="flex items-center space-x-2">
-            {article.tags.map(
-              (tag: {
-                id: Key | null | undefined;
-                name:
-                  | string
-                  | number
-                  | bigint
-                  | boolean
-                  | ReactElement<
-                      unknown,
-                      string | JSXElementConstructor<unknown>
-                    >
-                  | Iterable<ReactNode>
-                  | ReactPortal
-                  | Promise<AwaitedReactNode>
-                  | null
-                  | undefined;
-              }) => (
-                <div
-                  key={tag.id}
-                  onClick={() => {
-                    // Redirect the user to a tag page where all the articles with the the clicked tag are rendered
-                  }}
-                  className="rounded-2xl bg-gray-200/50 px-5 py-3"
-                >
-                  {tag.name}
-                </div>
-              ),
-            )}
+            {article.tags.map((tag) => (
+              <div
+                key={tag.id}
+                onClick={() => {
+                  // Redirect the user to a tag page where all the articles with the the clicked tag are rendered
+                }}
+                className="rounded-2xl bg-gray-200/50 px-5 py-3"
+              >
+                {tag.name}
+              </div>
+            ))}
           </div>
           {/* The bookmark functionality */}
           <div className="flex items-center justify-between space-x-2">
