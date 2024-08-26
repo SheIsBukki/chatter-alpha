@@ -4,8 +4,8 @@
  * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially useful
  * for Docker builds.
  */
-// await import("./src/env.js");
-import { env } from "./src/env.js";
+await import("./src/env.js");
+// import { env } from "./src/env.js";
 // await import("next-remove-imports");
 // module.exports = removeImports({});
 
@@ -58,20 +58,6 @@ const config = {
         port: "",
       },
     ],
-  },
-  env: {
-    DATABASE_URL: env.DATABASE_URL,
-    GOOGLE_CLIENT_ID: env.GOOGLE_CLIENT_ID,
-    GOOGLE_CLIENT_SECRET: env.GOOGLE_CLIENT_SECRET,
-    NEXTAUTH_SECRET: env.NEXTAUTH_SECRET,
-    NEXTAUTH_URL: env.NEXTAUTH_URL,
-    NEXT_PUBLIC_SUPABASE_PUBLIC_KEY: env.NEXT_PUBLIC_SUPABASE_PUBLIC_KEY,
-    NEXT_PUBLIC_SUPABASE_URL: env.NEXT_PUBLIC_SUPABASE_URL,
-    NODE_ENV: env.NODE_ENV,
-    SUPABASE_PUBLIC_KEY: env.SUPABASE_PUBLIC_KEY,
-    SUPABASE_URL: env.SUPABASE_URL,
-    UNSPLASH_ACCESS_KEY: env.UNSPLASH_API_ACCESS_KEY,
-    UNSPLASH_SECRET_KEY: env.UNSPLASH_API_SECRET_KEY,
   },
 };
 
