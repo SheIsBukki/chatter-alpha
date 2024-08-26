@@ -8,7 +8,7 @@ import {
 } from "@headlessui/react";
 import { HiCheck, HiChevronDown } from "react-icons/hi";
 import { Fragment, useMemo, useState } from "react";
-import type { TagsAutocompletionProps } from "@/components/lib/definitions";
+import type { TAG, TagsAutocompletionProps } from "@/components/lib/definitions";
 
 export default function TagsAutoCompletion({
   tags,
@@ -32,7 +32,7 @@ export default function TagsAutoCompletion({
   return (
     <Combobox
       value={selected}
-      onChange={(tag) => {
+      onChange={(tag: TAG) => {
         setSelected(tag);
         setSelectedTags((prev) => [...prev, tag]);
       }}
